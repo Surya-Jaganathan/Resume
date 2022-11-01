@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="icon" type="images/x-icon" href="{% static 'images/skill.ico' %}">
+    <title>Knowledge</title>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-md navbar-dark bl" role="navigation">
+        <div class="container-fluid navbar-brand"><a style="text-decoration: none;" href="/">
+                <h2 style="color: whitesmoke;">Surya<span style="color: #009ADA;">Jaganathan</span></h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-target="#home" data-bs-toggle="collapse"
+                aria-controls="home" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center" id="home">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link hl wh">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/resume" class="nav-link active hl wh" style="text-decoration: underline;">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/query" class="nav-link hl wh">Query</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% static 'css/style.css' %}" class="nav-link hl" hidden>CSS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #009ADA;">
+        <div class="container-fluid navbar-brand">
+            <h3>Knowledge</h3>
+            <button class="navbar-toggler" type="button" data-bs-target="#resume" data-bs-toggle="collapse"
+                aria-controls="resume" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="resume">
+                <ul class="navbar-nav text-center ms-auto">
+                    <li class="nav-item">
+                        <a href="/education" class="nav-link re" style="color: white;">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/intern" class="nav-link re" style="color: white;">Internship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/work" class="nav-link re" style="color: white;">Work Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/skill" class="nav-link re active"
+                            style="color: white; text-decoration: underline;">Knowledge</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <img src="{% static 'images/name plate.png' %}" class="img-responsive" width="100%" alt="">
+
+    <h3>Knowledge/ Skill's : </h3><br>
+    <ul class="container">
+        {% for form in form %}
+        <li>
+            <p>{{form.ski}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <footer>
+        <div class="container-fluid">
+            <div class="row bg-dark">
+                <h1 class="text-dark">.</h1>
+
+                <div class="container-fluid bg-dark">
+                    <div class="row">
+                        <h3 class="col-sm-4 container text-left" style="color: whitesmoke;">Surya<span
+                                style="color: #009ADA;">Jaganathan</span>
+                        </h3>
+                        <h4 class="col-sm-6 text-light text-left">Get connected with us on social networks:</h4>
+                        <h3 class="col-sm-2 text-light text-center">Contact</h3>
+                    </div>
+                </div>
+                <div class="container-fluid bg-dark">
+                    <div class="row">
+                        <h3 class="col-sm-4 container" style="color: whitesmoke;">
+                        </h3>
+                        <h3 class="col-sm-6 text-light text-left"><a class="instagram_button"
+                                href="https://www.instagram.com/surya_jaganathan?r=nametag"><img
+                                    src="{% static 'images/instagram.ico' %}" alt="instagram"></a>
+
+                            <a class="twitter_button"
+                                href="https://twitter.com/suryajaganatha1?t=rgJeuMk_0MTddWUllXPVwA&s=08"><img
+                                    src="{% static 'images/twitter.ico' %}" alt="twitter"></a>
+
+                            <a class="github_button" href="https://github.com/Surya-Jaganathan"><img
+                                    src="{% static 'images/github.ico' %}" alt="github"></a>
+
+                            <a class="linkedin_button"
+                                href="https://www.linkedin.com/in/surya-jaganathan-518664217"><img
+                                    src="{% static 'images/linkedin.ico' %}" alt="linkedin"></a>
+                        </h3>
+                        <h3 class="col-sm-2 text-light text-center"><a href="/contact" style="text-decoration: none;"
+                                class="h6">Contact</a></h3>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row bg-dark">
+                        <h1 class="text-dark">.</h1>
+                    </div>
+                </div>
+            </div>
+    </footer>
+</body>
+
+</html>

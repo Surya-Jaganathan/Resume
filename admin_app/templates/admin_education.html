@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="icon" type="images/x-icon" href="{% static 'images/internship.ico' %}">
+    <title>Admin | Education</title>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-md navbar-dark bl" role="navigation">
+        <div class="container-fluid navbar-brand"><a style="text-decoration: none;" href="/">
+                <h2 style="color: whitesmoke;">Surya<span style="color: #009ADA;">Jaganathan</span></h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-target="#home" data-bs-toggle="collapse"
+                aria-controls="home" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center" id="home">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="/guardian/home" class="nav-link hl wh">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/guardian/resume" class="nav-link active hl wh"
+                            style="text-decoration: underline;">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/guardian/query" class="nav-link hl wh">Query</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% static 'css/style.css' %}" class="nav-link hl">CSS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #009ADA;">
+        <div class="container-fluid navbar-brand">
+            <h3>Education</h3>
+            <button class="navbar-toggler" type="button" data-bs-target="#resume" data-bs-toggle="collapse"
+                aria-controls="resume" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="resume">
+                <ul class="navbar-nav text-center ms-auto">
+                    <li class="nav-item">
+                        <a href="/guardian/education" class="nav-link re active"
+                            style="color: white; text-decoration: underline;">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/guardian/intern" class="nav-link re" style="color: white;">Internship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/guardian/work" class="nav-link re" style="color: white;">Work Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/guardian/skill" class="nav-link re" style="color: white;">Knowledge</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav><br>
+
+    <form action="" method="post" class="container">
+        {% csrf_token %}
+        <textarea type="text" name="name" placeholder="Name" class=" col form-control"></textarea> <br>
+        <div class="container">
+            <div class="row">
+                <input type="text" name="board" placeholder="Board" class=" col form-control">
+                <input type="text" name="yop" placeholder="Year of Passed" class=" col form-control">
+            </div>
+        </div><br>
+        <div class="container">
+            <div class="row">
+                <input type="text" name="mark" placeholder="Marks/ CGPA" class=" col form-control">
+                <input type="text" name="degree" placeholder="Degree" class=" col form-control">
+            </div>
+        </div><br>
+        <input type="submit" value="upload" class="btn btn-primary container">
+    </form>
+    <br>
+    <div class="table-responsive">
+        <table class="table container-fluid">
+            <thead>
+                <tr class=" bg-success text-center">
+                    <th>Name</th>
+                    <th>Degree</th>
+                    <th>Board</th>
+                    <th>Year of Passed</th>
+                    <th>Marks/CGPA</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            {% for form in form %}
+            <tbody>
+                <tr class="text-center">
+                    <td>{{form.name}}</td>
+                    <td>{{form.degree}}</td>
+                    <td>{{form.board}}</td>
+                    <td>{{form.yop}}</td>
+                    <td>{{form.mark}}</td>
+                    <td><a href="update/{{form.id}}" class="btn btn-warning"></a>
+                        <a href="delete/{{form.id}}" class="btn btn-danger"></a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>

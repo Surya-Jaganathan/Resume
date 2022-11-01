@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="icon" type="images/x-icon" href="{% static 'images/home.ico' %}">
+    <title>Admin | Home</title>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-md navbar-dark bl" role="navigation">
+        <div class="container-fluid navbar-brand"><a style="text-decoration: none;" href="">
+                <h2 style="color: whitesmoke;">Surya<span style="color: #009ADA;">Jaganathan</span></h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-target="#home" data-bs-toggle="collapse"
+                aria-controls="home" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center" id="home">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="/guardian/home" class="nav-link hl active wh" style="text-decoration: underline;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/guardian/resume" class="nav-link hl wh">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/guardian/query" class="nav-link hl wh">Query</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% static 'css/style.css' %}" class="nav-link hl wh">CSS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <img src="{% static 'images/name plate.png' %}" class="img-responsive" width="100%" alt="">
+
+    <form action="" method="post" class="container">
+        {% csrf_token %}
+        <input type="text" name="heading" placeholder="Heading" class=" col form-control"> <br>
+        <textarea type="text" name="content" placeholder="Content" class=" col form-control"></textarea>
+        <input type="submit" value="upload" class="btn btn-primary container">
+    </form>
+    <hr class="mt-5">
+    {% for form in form %}
+    <div class="container">
+        <h2>{{form.heading}}</h2><br>
+        <p>{{form.content}}</p>
+        <p><a href="update/{{form.id}}" class="btn btn-warning"></a>
+        <a href="delete/{{form.id}}" class="btn btn-danger"></a></p>
+    </div>
+    <hr class="mt-5">
+    {% endfor %}
+
+
+
+
+
+
+</body>
+
+</html>

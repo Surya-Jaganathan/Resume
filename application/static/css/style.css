@@ -1,0 +1,26 @@
+body {
+    background: #FCF5E5;
+}
+.hl {
+    color: #343434;
+}
+
+.hl:hover {
+    background-color: #009ADA;
+    border-radius: 10px;
+}
+
+.re {
+    color: white;
+}
+
+.re:hover {
+    background-color: #343434;
+    border-radius: 10px;
+}
+.wh {
+    color: whitesmoke;
+}
+.bl {
+    background-color: #343434;
+}
